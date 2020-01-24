@@ -1,15 +1,90 @@
 /* google fonts */
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap');
 body {
-  font-family: Lato;
+  font-family: "Montserrat";
 }
+/* .mybody{
+ margin-bottom: 20px;
+} */
 .heropage {
   height: 50vh;
   background: linear-gradient(rgba(106,13,173,0.7),rgba(106,13,173,0.7)),url("../images/hero.jpg") center center/cover;
   color: #fff;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
+
+/* Form Search */
+
+.form {
+  width: 50%;
+  margin: 1rem auto;
+  text-align: center;
+  
+}
+
+.form button {
+  margin-top: 1rem;
+}
+
+#editor {
+  height: 30%;
+}
+
+.new_post {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.post {
+  width:200px;
+  height: 200px;
+  margin: 20px;
+
+}
+/* 
+.post_area {
+  position: relative;
+} */
+
+
+
+.images, .image {
+  width: 200px;
+  height: 200px;
+  display: block;
+
+}
+
+.image {
+  background: rgb(0,0,0);
+}
+
+.search, .submit {
+  background:transparent;
+  color: #FF7057;
+  border: 2px solid #FF7057;
+  text-align:center;
+}
+
+.btn:hover {
+  background: #FF7057;
+  color: #fff;
+  border: none;
+  transition: ease-out;
+}
+
+/* Register Form */
+
+.register {
+  width: 50%;
+  height: 70%;
+}
+
+
+
 
 figcaption {
   font-weight: bolder;
@@ -20,6 +95,10 @@ figcaption {
   width: 30%;
   
 
+}
+
+.started {
+  font-weight: bolder;
 }
 
 .heropage h1 {
@@ -92,7 +171,7 @@ h1.heading {
 }
 .card {
   display: block;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   line-height: 1.42857143;
   background-color: #fff;
   border-radius: 2px;
@@ -277,3 +356,8 @@ h1.heading {
             transform: translateY(-80%);
   }
 }
+/* .footer{
+  padding-top: 10px;
+  height: 10vh;
+  background-color:  #292D64;
+} */

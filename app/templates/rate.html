@@ -1,0 +1,88 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container">
+  <article class="media content-section card m-4 p-3">
+    <div class="text-center">
+      <img
+      class="rounded-circle article-img"
+      src="{{ url_for('static', filename='featured_images/' + post.image) }}"
+    />
+    </div>
+    <div class="media-body text-center">
+      <h2 class="article-title">{{ post.title }}</h2>
+      <p class="article-content">{{ post.content }}</p>
+    </div>
+    <div class="text-center">
+      {% for comment in comments %}
+      <div class="container mt-2 mb-3  border-bottom  border-top">
+        <div class="">
+          <div class="media-body">
+            <div class="article-metadata  textcolor">
+              <a class="mr-2" href=""></a>
+              <small class="text-muted"
+                >Posted by:{{ comment.author.username }} on {{
+                comment.date_posted.strftime('%Y-%m-%d') }}</small
+              >
+            </div>
+            <p class="text-muted">{{ comment.content }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="p-3">
+      <form action="" method="POST" >
+        {{form.hidden_tag()}}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4 mt-5 text-center">
+            Leave Comment
+          </legend>
+          <div class="form-group">
+            {{ form.content.label(class="form-control-label") }} {% if
+            form.content.errors %} {{ form.content(class="form-control
+            form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.content.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %} {{ form.content(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+        </fieldset>
+        <div class="text-center">
+          <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label
+              for="star5"
+              title="Rocks!"
+              >5 stars</label
+            >
+            <input type="radio" id="star4" name="rating" value="4" /><label
+              for="star4"
+              title="Pretty good"
+              >4 stars</label
+            >
+            <input type="radio" id="star3" name="rating" value="3" /><label
+              for="star3"
+              title="Meh"
+              >3 stars</label
+            >
+            <input type="radio" id="star2" name="rating" value="2" /><label
+              for="star2"
+              title="Kinda bad"
+              >2 stars</label
+            >
+            <input type="radio" id="star1" name="rating" value="1" /><label
+              for="star1"
+              title="Sucks big time"
+              >1 star</label
+            >
+          </div>
+        </div>
+        <div class="form-group ml-5">
+          {{form.submit(class="btn btn-outline-info")}}
+        </div>
+      </form>
+    </div>
+  </article>
+</div>
+{% endblock %}
