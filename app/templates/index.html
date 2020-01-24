@@ -1,70 +1,116 @@
 {% extends "layout.html" %} {% block content %}
 <div class="heropage">
   <div class="herocontent">
-    <h1>The #1 Rating <br> and Reviews Website <br> in Kenya</h1>
-    <p class="mt-4">Make a Five <i class="fas fa-star"></i> Rated decision Today</p>
+    <h1>
+      The #1 Rating <br />
+      and Reviews Website <br />
+      in Kenya
+    </h1>
+    <p class="mt-4">
+      Make a Five <i class="fas fa-star"></i> Rated decision Today
+    </p>
   </div>
-  <div class="steps">
-    <div class="text-center">
-    <figure>
-      <img src="{{ url_for('static', filename='images/account.png')}}" alt="Account" width="100px" class="step">
-      <figcaption>
-        SIGN UP
-      </figcaption>
-    </figure>
+  <div class="started d-flex flex-column justify-content-center">
+    <h3 class="text-center">Getting started is as easy as 1, 2, 3</h3>
+    <div class="steps">
+      <div class="text-center">
+        <figure>
+          <img
+            src="{{ url_for('static', filename='images/account.png')}}"
+            alt="Account"
+            width="100px"
+            class="step"
+          />
+          <figcaption>
+            SIGN UP
+          </figcaption>
+        </figure>
+      </div>
+      <div class="text-center">
+        <figure>
+          <img
+            src="{{ url_for('static', filename='images/search.png')}}"
+            alt="Account"
+            width="100px"
+            class="step"
+          />
+          <figcaption>
+            SEARCH
+          </figcaption>
+        </figure>
+      </div>
+      <div class="text-center">
+        <figure>
+          <img
+            src="{{ url_for('static', filename='images/rate.png')}}"
+            alt="Account"
+            width="100px"
+            class="step"
+          />
+          <figcaption>
+            RATE
+          </figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="text-center">
-    <figure>
-      <img src="{{ url_for('static', filename='images/search.png')}}" alt="Account" width="100px" class="step">
-      <figcaption>
-        SEARCH
-      </figcaption>
-    </figure>
-    </div>
-    <div class="text-center">
-    <figure>
-      <img src="{{ url_for('static', filename='images/rate.png')}}" alt="Account" width="100px" class="step">
-      <figcaption>
-        RATE
-      </figcaption>
-    </figure>
-    </div>
-
   </div>
 </div>
 <!-- Scrolling Text -->
-<div id ="two">
-  <p class="para">YOU CAN RATE</p>
-<div class="box">
-<ul class="scroller">
-  <li class="item-1">Hospitals</li>
-  <li class="item-2">Restaurants</li>
-  <li class="item-3">Colleges</li>
-  <li class="item-4">Companies</li>
-  <li class="item-5">Bakeries</li>
-</ul>  
+<div id="two">
+  <p class="para">YOU CAN REVIEW</p>
+  <div class="box" onclick="event.preventDefault()">
+    <ul class="scroller">
+      <li class="item-1"><strong>Hospitals</strong></li>
+      <li class="item-2"><strong>Restaurants</strong></li>
+      <li class="item-3"><strong>Colleges</strong></li>
+      <li class="item-4"><strong>Companies</strong></li>
+      <li class="item-5"><strong>Bakeries</strong></li>
+    </ul>
+  </div>
 </div>
+
+<!-- Search Area -->
+<div class="form mb-5">
+  <input
+    type="text"
+    class="form-control searching search"
+    placeholder="What's your query?"
+  />
+  <button class="btn search">Search Experience</button>
 </div>
-<!-- {% for post in posts %}
-<div class="col-xs-12 col-sm-4 col-md-8 col-lg-12">
-  <div class="card p-2">
-    <div class="image">
-      <a class="img-card" href="">
-          <img src="{{ url_for('static', filename='featured_images/')}}{{post.image}}" />
-      </a>
-    </div>
-      <div class="card-content">
-          <h4 class="card-title">
-            {{post.title}}
-            
-          </h4>
-          <p class="card-body">
-            {{post.content}}
-            {% include 'stars.html' %}
-          </p>
+
+<!-- Post Area -->
+<div class="post_area d-flex justify-content-center flex-wrap mb-5">
+  {% for post in posts %}
+  <div class="row">
+    <div class="col-md-5 mb-5">
+      <div class="post">
+        <div class="card">
+          <div class="image">
+            <img
+              src="{{ url_for('static', filename='featured_images/')}}{{post.image}}"
+              class="images"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="text-center title m-3">
+              {{post.title}}
+            </h4>
+            <p class="card-text">{{post.content}}</p>
+          </div>
+          <div class="text-center mb-3">
+            <button class="btn btn-outline-primary btn-small" type="button">
+              <a href="{{ url_for('ratings.post', post_id=post.id) }}">Rate</a>
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 
-{% endfor %} {% endblock content %} -->
-
-
+  {% endfor %}
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+{% endblock content %}
